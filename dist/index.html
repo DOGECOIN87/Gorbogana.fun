@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gorbogana - The Trash Typo Shrine</title>
+    <style>
+      /* Critical CRT styles inline for zero-flash */
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+      }
+
+      .crt-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+        z-index: 1000;
+      }
+
+      .crt-overlay::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(18, 16, 16, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        animation: flicker 0.15s infinite;
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 0.27861;
+        }
+        5% {
+          opacity: 0.34769;
+        }
+        10% {
+          opacity: 0.23604;
+        }
+        15% {
+          opacity: 0.90626;
+        }
+        20% {
+          opacity: 0.18128;
+        }
+        25% {
+          opacity: 0.83891;
+        }
+        30% {
+          opacity: 0.65583;
+        }
+        35% {
+          opacity: 0.67807;
+        }
+        40% {
+          opacity: 0.26559;
+        }
+        45% {
+          opacity: 0.84693;
+        }
+        50% {
+          opacity: 0.96019;
+        }
+        55% {
+          opacity: 0.08594;
+        }
+        60% {
+          opacity: 0.20313;
+        }
+        65% {
+          opacity: 0.71988;
+        }
+        70% {
+          opacity: 0.53455;
+        }
+        75% {
+          opacity: 0.37288;
+        }
+        80% {
+          opacity: 0.71428;
+        }
+        85% {
+          opacity: 0.70419;
+        }
+        90% {
+          opacity: 0.7003;
+        }
+        95% {
+          opacity: 0.36108;
+        }
+        100% {
+          opacity: 0.24387;
+        }
+      }
+
+      /* Glass crack effects */
+      .glass-crack {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 100;
+        background: radial-gradient(
+          circle at 30% 40%,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 2%
+        );
+      }
+
+      .glass-crack-1 {
+        background:
+          radial-gradient(circle at 30% 40%, rgba(255,255,255,0.15) 0%, transparent 3%),
+          linear-gradient(120deg, transparent 48%, rgba(255,255,255,0.1) 49%, transparent 50%);
+      }
+
+      .glass-crack-2 {
+        background:
+          radial-gradient(circle at 30% 40%, rgba(255,255,255,0.2) 0%, transparent 4%),
+          radial-gradient(circle at 70% 60%, rgba(255,255,255,0.15) 0%, transparent 3%),
+          linear-gradient(120deg, transparent 48%, rgba(255,255,255,0.12) 49%, transparent 50%),
+          linear-gradient(60deg, transparent 48%, rgba(255,255,255,0.08) 49%, transparent 50%);
+      }
+
+      .glass-crack-3 {
+        background:
+          radial-gradient(circle at 30% 40%, rgba(255,255,255,0.25) 0%, transparent 5%),
+          radial-gradient(circle at 70% 60%, rgba(255,255,255,0.2) 0%, transparent 4%),
+          radial-gradient(circle at 50% 80%, rgba(255,255,255,0.15) 0%, transparent 3%),
+          linear-gradient(120deg, transparent 48%, rgba(255,255,255,0.15) 49%, transparent 50%),
+          linear-gradient(60deg, transparent 48%, rgba(255,255,255,0.12) 49%, transparent 50%),
+          linear-gradient(90deg, transparent 48%, rgba(255,255,255,0.08) 49%, transparent 50%);
+      }
+
+      /* Chalk dust texture */
+      .chalk-dust {
+        background-image:
+          repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
+          repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(255,255,255,0.02) 2px, rgba(255,255,255,0.02) 4px);
+      }
+
+      @keyframes trash-shake {
+        0%, 100% { transform: translateX(0) rotate(0deg); }
+        25% { transform: translateX(-2px) rotate(-1deg); }
+        75% { transform: translateX(2px) rotate(1deg); }
+      }
+
+      .animate-trash-shake:hover {
+        animation: trash-shake 0.3s ease-in-out infinite;
+      }
+
+      .font-glitch {
+        font-family: 'Courier New', monospace;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+
+      .font-wet {
+        font-family: Impact, 'Arial Black', sans-serif;
+        letter-spacing: 0.1em;
+      }
+
+      .font-chalk {
+        font-family: 'Brush Script MT', cursive;
+      }
+
+      .text-shadow-glow {
+        text-shadow: 0 0 10px currentColor;
+      }
+
+      .text-shadow-sm {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .perspective-500 {
+        perspective: 500px;
+      }
+
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-Bdj8YZ59.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BCu_MyQ0.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
