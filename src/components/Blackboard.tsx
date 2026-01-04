@@ -51,7 +51,8 @@ const Blackboard: React.FC<BlackboardProps> = ({ damageLevel = 0 }) => {
   useEffect(() => {
     fetch('http://localhost:3001/api/chalkboard')
       .then(res => res.json())
-      .then(data => setMessage(data.text));
+      .then(data => setMessage(data.text))
+      .catch(err => console.log('Chalkboard API unavailable:', err));
   }, []);
 
   const handleSave = () => {
@@ -59,19 +60,19 @@ const Blackboard: React.FC<BlackboardProps> = ({ damageLevel = 0 }) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: message }),
-    });
+    }).catch(err => console.log('Failed to save:', err));
     setIsEditing(false);
   };
 
   const handleErase = () => {
     if (window.confirm("Are you sure you want to wipe the slate clean?")) {
       setMessage('');
-      setTrashItems([]); 
+      setTrashItems([]);
       fetch('http://localhost:3001/api/chalkboard', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: '' }),
-      });
+      }).catch(err => console.log('Failed to erase:', err));
       setIsEditing(true);
     }
   };

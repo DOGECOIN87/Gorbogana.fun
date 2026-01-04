@@ -17,11 +17,9 @@ const TrashRain: React.FC<TrashRainProps> = ({ onTrashCountChange }) => {
 
     // Module aliases
     const Engine = Matter.Engine,
-          Render = Matter.Render,
           Runner = Matter.Runner,
           Bodies = Matter.Bodies,
           Composite = Matter.Composite,
-          Events = Matter.Events,
           World = Matter.World;
 
     // Create engine
